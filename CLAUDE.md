@@ -138,3 +138,94 @@ Modules follow strict dependency rules - lower-level modules cannot depend on hi
 - Many modules have README.md files - read them
 - Some code uses integer slot IDs (SFX2) while newer code uses UNO commands
 - Build times can be long - use module-specific builds when possible
+
+## Writer Development Focus
+
+Since we are focusing exclusively on Writer development, here's what you need to know:
+
+### Essential Folders for Writer Development
+
+#### Primary Writer Module
+- **sw/** - The main Writer module containing all Writer-specific code
+  - source/core/ - Core Writer functionality (document model, layout, fields)
+  - source/filter/ - Import/export filters for various formats
+  - source/ui/ - UI dialogs and controls
+  - source/uibase/ - UI base classes and controllers
+  - inc/ - Writer headers
+
+#### Core Dependencies (Required for Writer)
+- **vcl/** - Visual Class Library (UI widgets and rendering)
+- **sfx2/** - Application framework (document model, load/save infrastructure)
+- **svx/** - Shared editing components and drawing layer
+- **editeng/** - Text editing engine (paragraph, character formatting)
+- **svl/** - Non-UI tools and utilities
+- **svtools/** - UI-related tools
+- **framework/** - UNO-based UI framework (menus, toolbars)
+- **comphelper/** - Common helper classes
+- **tools/** - Basic tools and utilities
+- **sal/** - System Abstraction Layer (required by everything)
+
+#### Document Format Support
+- **xmloff/** - ODF XML import/export
+- **oox/** - OOXML (docx) import/export
+- **filter/** - General filter framework
+- **package/** - ZIP package handling for ODF
+
+#### Essential Services
+- **i18npool/** - Internationalization services
+- **i18nutil/** - Internationalization utilities
+- **linguistic/** - Spell checking and linguistic services
+
+### Folders You Can Safely Ignore
+
+When working only on Writer features, you can ignore:
+
+#### Other Applications (60%+ of codebase)
+- **sc/** - Calc (spreadsheet)
+- **sd/** - Draw/Impress (presentation/drawing)
+- **chart2/** - Chart module
+- **starmath/** - Math formula editor
+
+#### Specialized Components
+- **basic/** - Basic macro interpreter
+- **forms/** - Form controls
+- **reportdesign/** - Report designer
+- **connectivity/**, **dbaccess/** - Database access (unless working on mail merge)
+- **extensions/** - Extension framework
+- **scripting/** - Scripting support
+
+#### Platform-Specific (unless on that platform)
+- **android/**, **ios/** - Mobile platforms
+- **winaccessibility/** - Windows-specific accessibility
+- **apple_remote/** - macOS remote control
+
+#### Development Infrastructure
+- **odk/** - SDK
+- **qadevOOo/** - QA test framework
+- **external/** - Third-party libraries (handled by build system)
+- Language bindings: **javaunohelper/**, **pyuno/**, **cli_ure/**
+
+### Writer-Specific Architecture Notes
+
+#### Core Classes
+- **SwDoc** - The main document model class
+- **SwNodes** - Document content tree structure
+- **SwTextNode** - Text paragraph nodes
+- **SwFrame** - Layout objects for rendering
+- **SwView** - Main view controller
+
+#### UNO Wrappers
+- **SwXTextDocument** - UNO wrapper for SwDoc
+- **SwXParagraph** - UNO wrapper for paragraphs
+- **SwXTextCursor** - UNO wrapper for text cursors
+
+Most internal Writer code uses direct C++ calls between these classes. UNO is primarily used for:
+- External API (extensions, macros)
+- Communication with framework (menus, toolbars)
+- Import/export filters
+
+### Quick Start for Writer Changes
+1. Focus your work in the **sw/** directory
+2. Run `make sw.build` for quick rebuilds
+3. Run `make sw.check` to test Writer-specific changes
+4. Use `make debugrun gb_DBGARGS="--writer"` to test your changes
