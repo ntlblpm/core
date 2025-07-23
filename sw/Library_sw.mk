@@ -803,6 +803,7 @@ $(eval $(call gb_Library_add_exception_objects,sw,\
     sw/source/uibase/utlui/unotools \
     sw/source/uibase/utlui/viewlayoutctrl \
     sw/source/uibase/utlui/wordcountctrl \
+    sw/source/uibase/utlui/timerctrl \
     sw/source/uibase/utlui/zoomctrl \
     sw/source/uibase/web/wdocsh \
     sw/source/uibase/web/wformsh \

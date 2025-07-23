@@ -82,6 +82,7 @@
 #include <svx/zoomsliderctrl.hxx>
 #include <zoomctrl.hxx>
 #include <wordcountctrl.hxx>
+#include <timerctrl.hxx>
 #include <AccessibilityStatusBarControl.hxx>
 #include <workctrl.hxx>
 #include <fldwrap.hxx>
@@ -292,6 +293,7 @@ void SwDLL::RegisterControls()
     XmlSecStatusBarControl::RegisterControl( SID_SIGNATURE, pMod );
     SwWordCountStatusBarControl::RegisterControl(FN_STAT_WORDCOUNT, pMod);
     sw::AccessibilityStatusBarControl::RegisterControl(FN_STAT_ACCESSIBILITY_CHECK, pMod);
+    SwTimerStatusBarControl::RegisterControl(FN_STAT_TIMER, pMod);
 
     SwBookmarkControl::RegisterControl(FN_STAT_PAGE, pMod );
     SwTemplateControl::RegisterControl(FN_STAT_TEMPLATE, pMod );

@@ -6264,6 +6264,23 @@ SfxStringItem StateWordCount FN_STAT_WORDCOUNT
     GroupId = SfxGroupId::View;
 ]
 
+SfxStringItem StateTimer FN_STAT_TIMER
+
+[
+    AutoUpdate = FALSE,
+    FastCall = FALSE,
+    ReadOnlyDoc = TRUE,
+    Toggle = FALSE,
+    Container = FALSE,
+    RecordAbsolute = FALSE,
+    RecordPerSet;
+
+    AccelConfig = FALSE,
+    MenuConfig = FALSE,
+    ToolBoxConfig = FALSE,
+    GroupId = SfxGroupId::View;
+]
+
 SfxInt32Item StateAccessibilityCheck FN_STAT_ACCESSIBILITY_CHECK
 
 [

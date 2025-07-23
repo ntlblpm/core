@@ -1938,6 +1938,14 @@ void SwView::StateStatusLine(SfxItemSet &rSet)
                     pWrdCnt->SetCounts(selectionStats, documentStats);
             }
             break;
+
+            case FN_STAT_TIMER:
+            {
+                // Timer control manages its own state, just provide an empty string
+                // The actual timer display is handled by the control itself
+                rSet.Put( SfxStringItem( FN_STAT_TIMER, OUString() ) );
+            }
+            break;
             case FN_STAT_ACCESSIBILITY_CHECK:
             {
                 std::unique_ptr<sw::OnlineAccessibilityCheck> const& rOnlineAccessibilityCheck = rShell.GetDoc()->getOnlineAccessibilityCheck();
