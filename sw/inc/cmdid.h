@@ -691,6 +691,10 @@ class SwUINumRuleItem;
 #define FN_PRODUCTIVITY_MENU     (FN_EXTRA2 + 134)
 #define FN_FOCUS_MODE           (FN_EXTRA2 + 135)
 
+// Heading navigation commands
+#define FN_GOTO_NEXT_HEADING    (FN_EXTRA2 + 136)
+#define FN_GOTO_PREV_HEADING    (FN_EXTRA2 + 137)
+
 // Area: Help
 // Region: Traveling & Selection
 #define FN_CHAR_LEFT                (FN_SELECTION + 1 ) /* */

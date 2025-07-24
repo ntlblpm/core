@@ -4434,6 +4434,28 @@
           <value>8</value>
         </prop>
       </node>
+      <node oor:name=".uno:GotoNextHeading" oor:op="replace">
+        <prop oor:name="Label" oor:type="xs:string">
+          <value xml:lang="en-US">Next Heading</value>
+        </prop>
+        <prop oor:name="ContextLabel" oor:type="xs:string">
+          <value xml:lang="en-US">Next</value>
+        </prop>
+        <prop oor:name="TooltipLabel" oor:type="xs:string">
+          <value xml:lang="en-US">Go to next heading</value>
+        </prop>
+      </node>
+      <node oor:name=".uno:GotoPrevHeading" oor:op="replace">
+        <prop oor:name="Label" oor:type="xs:string">
+          <value xml:lang="en-US">Previous Heading</value>
+        </prop>
+        <prop oor:name="ContextLabel" oor:type="xs:string">
+          <value xml:lang="en-US">Previous</value>
+        </prop>
+        <prop oor:name="TooltipLabel" oor:type="xs:string">
+          <value xml:lang="en-US">Go to previous heading</value>
+        </prop>
+      </node>
     </node>
   </node>
 </oor:component-data>

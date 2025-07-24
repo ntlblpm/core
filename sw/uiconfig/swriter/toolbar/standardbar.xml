@@ -48,6 +48,8 @@
  <toolbar:toolbarseparator/>
  <toolbar:toolbaritem xlink:href=".uno:SearchDialog"/>
  <toolbar:toolbaritem xlink:href=".uno:Navigator" toolbar:visible="false"/>
+ <toolbar:toolbaritem xlink:href=".uno:GotoPrevHeading"/>
+ <toolbar:toolbaritem xlink:href=".uno:GotoNextHeading"/>
  <toolbar:toolbaritem xlink:href=".uno:SpellingAndGrammarDialog"/>
  <toolbar:toolbaritem xlink:href=".uno:SpellOnline" toolbar:visible="false"/>
  <toolbar:toolbaritem xlink:href=".uno:ControlCodes"/>

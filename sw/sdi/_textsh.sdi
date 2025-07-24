@@ -603,6 +603,16 @@ interface BaseText
         ExecMethod = ExecMoveMisc ;
         StateMethod = NoState ;
     ]
+    FN_GOTO_PREV_HEADING
+    [
+        ExecMethod = ExecMoveMisc ;
+        StateMethod = NoState ;
+    ]
+    FN_GOTO_NEXT_HEADING
+    [
+        ExecMethod = ExecMoveMisc ;
+        StateMethod = NoState ;
+    ]
     FN_NEXT_WORD // status(final|play)
     [
         ExecMethod = ExecMoveLingu ;

@@ -65,7 +65,6 @@ Status Bar Additions
   Toolbar Additions
 
   1. Writing Productivity Toolbar:
-    - Focus mode toggle
     - Writing goal setter
     - Sprint timer start/stop
     - Typewriter scrolling toggle

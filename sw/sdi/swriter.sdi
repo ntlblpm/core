@@ -4017,6 +4017,40 @@ SfxVoidItem JumpToPrevRegion FN_GOTO_PREV_REGION
     GroupId = SfxGroupId::Navigator;
 ]
 
+SfxVoidItem GotoNextHeading FN_GOTO_NEXT_HEADING
+()
+[
+    AutoUpdate = FALSE,
+    FastCall = FALSE,
+    ReadOnlyDoc = TRUE,
+    Toggle = FALSE,
+    Container = FALSE,
+    RecordAbsolute = FALSE,
+    RecordPerSet;
+
+    AccelConfig = TRUE,
+    MenuConfig = TRUE,
+    ToolBoxConfig = TRUE,
+    GroupId = SfxGroupId::Navigator;
+]
+
+SfxVoidItem GotoPrevHeading FN_GOTO_PREV_HEADING
+()
+[
+    AutoUpdate = FALSE,
+    FastCall = FALSE,
+    ReadOnlyDoc = TRUE,
+    Toggle = FALSE,
+    Container = FALSE,
+    RecordAbsolute = FALSE,
+    RecordPerSet;
+
+    AccelConfig = TRUE,
+    MenuConfig = TRUE,
+    ToolBoxConfig = TRUE,
+    GroupId = SfxGroupId::Navigator;
+]
+
 SfxVoidItem JumpToPrevTable FN_PREV_TABLE
 ()
 [

@@ -413,6 +413,12 @@ void SwTextShell::ExecMoveMisc(SfxRequest &rReq)
         case FN_GOTO_PREV_REGION :
             bRet = rSh.MoveRegion(GotoPrevRegion, fnRegionStart);
             break;
+        case FN_GOTO_NEXT_HEADING:
+            bRet = rSh.GotoNextOutline();
+            break;
+        case FN_GOTO_PREV_HEADING:
+            bRet = rSh.GotoPrevOutline();
+            break;
         case FN_NEXT_TOXMARK:
             bRet = rSh.GotoNxtPrvTOXMark();
             break;
