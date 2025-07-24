@@ -832,6 +832,12 @@
       <menu:menuitem menu:id=".uno:OptionsTreeDialog"/>
     </menu:menupopup>
   </menu:menu>
+  <menu:menu menu:id=".uno:ProductivityMenu">
+    <menu:menupopup>
+      <menu:menuitem menu:id=".uno:FocusMode"/>
+      <menu:menuitem menu:id=".uno:WordCountDialog"/>
+    </menu:menupopup>
+  </menu:menu>
   <menu:menu menu:id=".uno:WindowList">
     <menu:menupopup>
       <menu:menuitem menu:id=".uno:NewWindow"/>

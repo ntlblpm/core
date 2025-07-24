@@ -5987,6 +5987,24 @@ SfxBoolItem ShowWhitespace FN_VIEW_SHOW_WHITESPACE
     GroupId = SfxGroupId::View;
 ]
 
+SfxBoolItem FocusMode FN_VIEW_FOCUS_MODE
+
+[
+    AutoUpdate = TRUE,
+    FastCall = FALSE,
+    ReadOnlyDoc = TRUE,
+    Toggle = TRUE,
+    Container = FALSE,
+    RecordAbsolute = FALSE,
+    RecordPerSet;
+
+
+    AccelConfig = TRUE,
+    MenuConfig = TRUE,
+    ToolBoxConfig = TRUE,
+    GroupId = SfxGroupId::View;
+]
+
 SfxBoolItem ShowTrackedChanges FN_REDLINE_SHOW
 
 [
@@ -9048,4 +9066,37 @@ SfxVoidItem CopyFieldDialog FN_COPY_FIELD
     MenuConfig = FALSE,
     ToolBoxConfig = FALSE,
     GroupId = SfxGroupId::Edit;
+]
+
+SfxVoidItem ProductivityMenu FN_PRODUCTIVITY_MENU
+()
+[
+    AutoUpdate = FALSE,
+    FastCall = FALSE,
+    ReadOnlyDoc = TRUE,
+    Toggle = FALSE,
+    Container = FALSE,
+    RecordAbsolute = FALSE,
+    RecordPerSet;
+
+    AccelConfig = FALSE,
+    MenuConfig = TRUE,
+    ToolBoxConfig = FALSE,
+    GroupId = SfxGroupId::Application;
+]
+
+SfxBoolItem FocusMode FN_FOCUS_MODE
+[
+    AutoUpdate = TRUE,
+    FastCall = FALSE,
+    ReadOnlyDoc = TRUE,
+    Toggle = TRUE,
+    Container = FALSE,
+    RecordAbsolute = FALSE,
+    RecordPerSet;
+
+    AccelConfig = TRUE,
+    MenuConfig = TRUE,
+    ToolBoxConfig = TRUE,
+    GroupId = SfxGroupId::View;
 ]

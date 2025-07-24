@@ -6953,6 +6953,11 @@ bit 3 (0x8): #define UICOMMANDDESCRIPTION_PROPERTIES_TOGGLEBUTTON 8
           <value xml:lang="en-US">~Tools</value>
         </prop>
       </node>
+      <node oor:name=".uno:ProductivityMenu" oor:op="replace">
+        <prop oor:name="Label" oor:type="xs:string">
+          <value xml:lang="en-US">Productivity</value>
+        </prop>
+      </node>
       <node oor:name=".uno:SpellingMenu" oor:op="replace">
         <prop oor:name="Label" oor:type="xs:string">
           <value xml:lang="en-US">~Spellcheck</value>

@@ -210,6 +210,7 @@ class SwUINumRuleItem;
 #define FN_RECORD_TRACKED_CHANGES_MENU         (FN_VIEW + 71)  /* Menu for the track changes record modes */
 #define FN_TRACK_CHANGES_IN_THIS_VIEW          (FN_VIEW + 72)  /* Record track changes only in this view */
 #define FN_TRACK_CHANGES_IN_ALL_VIEWS          (FN_VIEW + 73)  /* Record track changes only in all views */
+#define FN_VIEW_FOCUS_MODE                     (FN_VIEW + 74)  /* Toggle focus mode */
 
 // Region: Insert
 #define FN_INSERT_BOOKMARK      (FN_INSERT + 2 )  /* Bookmark */
@@ -685,6 +686,10 @@ class SwUINumRuleItem;
 #define FN_UNO_LINEBREAK (FN_EXTRA2 + 131)
 #define FN_UNO_CONTENT_CONTROL (FN_EXTRA2 + 132)
 #define FN_UNO_IS_CONTENT_EMPTY  (FN_EXTRA2 + 133)
+
+// Productivity menu commands
+#define FN_PRODUCTIVITY_MENU     (FN_EXTRA2 + 134)
+#define FN_FOCUS_MODE           (FN_EXTRA2 + 135)
 
 // Area: Help
 // Region: Traveling & Selection

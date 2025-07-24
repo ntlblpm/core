@@ -607,6 +607,13 @@ void SwView::GetState(SfxItemSet &rSet)
                     rSet.DisableItem(nWhich);
             }
             break;
+
+        case FN_FOCUS_MODE:
+        {
+            // Focus mode is always available
+            rSet.Put(SfxBoolItem(FN_FOCUS_MODE, false)); // false = not in focus mode yet
+            break;
+        }
         }
         nWhich = aIter.NextWhich();
     }

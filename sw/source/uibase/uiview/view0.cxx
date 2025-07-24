@@ -42,6 +42,8 @@
 #include <avmedia/mediaplayer.hxx>
 #include <swmodule.hxx>
 #include <com/sun/star/linguistic2/XLinguProperties.hpp>
+#include <com/sun/star/frame/XLayoutManager.hpp>
+#include <com/sun/star/beans/XPropertySet.hpp>
 #include <comphelper/servicehelper.hxx>
 #include <osl/diagnose.h>
 
@@ -306,6 +308,11 @@ void SwView::StateViewOptions(SfxItemSet &rSet)
                 aBool.SetValue(!pOpt->IsHideWhitespaceMode());
                 break;
             }
+            case FN_VIEW_FOCUS_MODE:
+            {
+                aBool.SetValue(m_bInFocusMode);
+                break;
+            }
             case SID_GRID_VISIBLE:
                 aBool.SetValue( pOpt->IsGridVisible() ); break;
             case SID_GRID_USE:
@@ -523,6 +530,87 @@ void SwView::ExecViewOptions(SfxRequest &rReq)
 
         pOpt->SetHideWhitespaceMode(!bFlag);
         break;
+
+    case FN_VIEW_FOCUS_MODE:
+    {
+        if ( STATE_TOGGLE == eState )
+            bFlag = !m_bInFocusMode;
+
+        if (bFlag && !m_bInFocusMode) // Enter focus mode
+        {
+            // Save current UI state
+            m_bPrevRulerState = pOpt->IsViewAnyRuler();
+            m_bPrevVScrollState = pOpt->IsViewVScrollBar();
+            m_bPrevHScrollState = pOpt->IsViewHScrollBar();
+
+            // Hide UI elements via ViewOptions
+            pOpt->SetViewAnyRuler(false);
+            pOpt->SetViewVScrollBar(false);
+            pOpt->SetViewHScrollBar(false);
+
+            // Hide status bar and toolbars using layout manager
+            try
+            {
+                uno::Reference<frame::XLayoutManager> xLayoutManager;
+                uno::Reference<beans::XPropertySet> xPropSet(GetViewFrame().GetFrame().GetFrameInterface(), uno::UNO_QUERY);
+                if (xPropSet.is())
+                {
+                    uno::Any aValue = xPropSet->getPropertyValue("LayoutManager");
+                    aValue >>= xLayoutManager;
+                    if (xLayoutManager.is())
+                    {
+                        // Hide status bar
+                        xLayoutManager->hideElement("private:resource/statusbar/statusbar");
+                        // Hide main toolbars
+                        xLayoutManager->hideElement("private:resource/toolbar/standardbar");
+                        xLayoutManager->hideElement("private:resource/toolbar/textobjectbar");
+                        xLayoutManager->hideElement("private:resource/toolbar/formattingbar");
+                    }
+                }
+            }
+            catch (const uno::Exception&)
+            {
+                // If hiding fails, continue anyway
+            }
+
+            m_bInFocusMode = true;
+        }
+        else if (!bFlag && m_bInFocusMode) // Exit focus mode
+        {
+            // Restore previous UI state
+            pOpt->SetViewAnyRuler(m_bPrevRulerState);
+            pOpt->SetViewVScrollBar(m_bPrevVScrollState);
+            pOpt->SetViewHScrollBar(m_bPrevHScrollState);
+
+            // Show status bar and toolbars
+            try
+            {
+                uno::Reference<frame::XLayoutManager> xLayoutManager;
+                uno::Reference<beans::XPropertySet> xPropSet(GetViewFrame().GetFrame().GetFrameInterface(), uno::UNO_QUERY);
+                if (xPropSet.is())
+                {
+                    uno::Any aValue = xPropSet->getPropertyValue("LayoutManager");
+                    aValue >>= xLayoutManager;
+                    if (xLayoutManager.is())
+                    {
+                        // Show status bar
+                        xLayoutManager->showElement("private:resource/statusbar/statusbar");
+                        // Show main toolbars
+                        xLayoutManager->showElement("private:resource/toolbar/standardbar");
+                        xLayoutManager->showElement("private:resource/toolbar/textobjectbar");
+                        xLayoutManager->showElement("private:resource/toolbar/formattingbar");
+                    }
+                }
+            }
+            catch (const uno::Exception&)
+            {
+                // If showing fails, continue anyway
+            }
+
+            m_bInFocusMode = false;
+        }
+        break;
+    }
 
     case FN_VIEW_SMOOTH_SCROLL:
 

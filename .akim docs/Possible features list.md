@@ -46,7 +46,6 @@ Status Bar Additions
   Menu Bar Additions
 
   1. Writing Tools Menu - Dedicated menu for:
-    - Distraction-free mode
     - Writing sprints/challenges
     - Document analysis tools
     - Style consistency checker

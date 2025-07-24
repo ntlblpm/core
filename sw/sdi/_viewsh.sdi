@@ -918,6 +918,12 @@ interface BaseTextEditView
         StateMethod = StateViewOptions ;
     ]
 
+    FN_VIEW_FOCUS_MODE
+    [
+        ExecMethod = ExecViewOptions ;
+        StateMethod = StateViewOptions ;
+    ]
+
     SID_TOGGLE_NOTES
     [
         ExecMethod = ExecViewOptions ;

@@ -4,3 +4,8 @@
     - useful for consultants/lawyers billing time, students checking when to take a break
 2. Reading time estimate in the status bar:
     - minutes = word count / 200
+3. Productivity menu added to menu bar with a "Focus Mode" toggle that:
+    - All UI chrome disappears (toolbars, rulers, scrollbars, status bar)
+    - Only the document canvas remains visible
+    - The previous UI state is saved
+    - Toggling Focus Mode again restores the original UI configuration

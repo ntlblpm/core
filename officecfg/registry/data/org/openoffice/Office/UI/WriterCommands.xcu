@@ -4426,6 +4426,14 @@
           <value>8</value>
         </prop>
       </node>
+      <node oor:name=".uno:FocusMode" oor:op="replace">
+        <prop oor:name="Label" oor:type="xs:string">
+          <value xml:lang="en-US">Focus Mode</value>
+        </prop>
+        <prop oor:name="Properties" oor:type="xs:int">
+          <value>8</value>
+        </prop>
+      </node>
     </node>
   </node>
 </oor:component-data>

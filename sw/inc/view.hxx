@@ -278,6 +278,12 @@ class SW_DLLPUBLIC SwView: public SfxViewShell
 
     bool m_bDying = false;
 
+    // Focus mode state variables
+    bool m_bInFocusMode = false;
+    bool m_bPrevRulerState = true;
+    bool m_bPrevVScrollState = true;
+    bool m_bPrevHScrollState = true;
+
     static constexpr sal_uInt16 MAX_ZOOM_PERCENT = 600;
     static constexpr sal_uInt16 MIN_ZOOM_PERCENT = 20;
 

@@ -1702,6 +1702,13 @@ void SwView::Execute(SfxRequest &rReq)
             break;
         }
 
+        case FN_FOCUS_MODE:
+        {
+            // Toggle focus mode - stub implementation
+            // TODO: Implement focus mode functionality
+            break;
+        }
+
         default:
             OSL_ENSURE(false, "wrong dispatcher");
             return;
