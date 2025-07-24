@@ -453,6 +453,11 @@ interface BaseTextEditView
         ExecMethod = ExecuteStatusLine ;
         StateMethod = StateStatusLine ;
     ]
+    FN_STAT_READINGTIME // status()
+    [
+        ExecMethod = ExecuteStatusLine ;
+        StateMethod = StateStatusLine ;
+    ]
     FN_STAT_ACCESSIBILITY_CHECK // status()
     [
         ExecMethod = ExecuteStatusLine;

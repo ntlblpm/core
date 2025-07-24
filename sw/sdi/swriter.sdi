@@ -6281,6 +6281,23 @@ SfxStringItem StateTimer FN_STAT_TIMER
     GroupId = SfxGroupId::View;
 ]
 
+SfxStringItem StateReadingTime FN_STAT_READINGTIME
+
+[
+    AutoUpdate = FALSE,
+    FastCall = FALSE,
+    ReadOnlyDoc = TRUE,
+    Toggle = FALSE,
+    Container = FALSE,
+    RecordAbsolute = FALSE,
+    RecordPerSet;
+
+    AccelConfig = FALSE,
+    MenuConfig = FALSE,
+    ToolBoxConfig = FALSE,
+    GroupId = SfxGroupId::View;
+]
+
 SfxInt32Item StateAccessibilityCheck FN_STAT_ACCESSIBILITY_CHECK
 
 [

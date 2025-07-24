@@ -35,14 +35,13 @@ claude generated list (offline-only):
 
 Status Bar Additions
 
-  1. Reading Time Estimate - Shows estimated time to read the document (based on average reading speed)
-  2. Document Statistics - Paragraphs, sentences, average word length, readability score
-  3. Version/Revision Indicator - Show document version number or revision count
-  4. Writing Goal Progress - Track daily/session word count goals
-  5. Focus Mode Timer - Pomodoro-style timer for focused writing sessions
-  6. Document Complexity - Grade level or complexity indicator
-  7. Active Styles Count - Number of unique styles used in document
-  8. Section Navigator - Quick jump between document sections/chapters
+  1. Document Statistics - Paragraphs, sentences, average word length, readability score
+  2. Version/Revision Indicator - Show document version number or revision count
+  3. Writing Goal Progress - Track daily/session word count goals
+  4. Focus Mode Timer - Pomodoro-style timer for focused writing sessions
+  5. Document Complexity - Grade level or complexity indicator
+  6. Active Styles Count - Number of unique styles used in document
+  7. Section Navigator - Quick jump between document sections/chapters
 
   Menu Bar Additions
 

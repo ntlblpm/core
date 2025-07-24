@@ -889,6 +889,7 @@ class SwUINumRuleItem;
 #define FN_STAT_WORDCOUNT           TypedWhichId<SfxStringItem>(FN_STAT + 9)
 #define FN_STAT_ACCESSIBILITY_CHECK (FN_STAT + 10)
 #define FN_STAT_TIMER               TypedWhichId<SfxStringItem>(FN_STAT + 11)
+#define FN_STAT_READINGTIME         TypedWhichId<SfxStringItem>(FN_STAT + 12)
 
 // Region: Page preview
 #define FN_SHOW_TWO_PAGES           (FN_PGPREVIEW + 1)

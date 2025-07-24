@@ -1946,6 +1946,41 @@ void SwView::StateStatusLine(SfxItemSet &rSet)
                 rSet.Put( SfxStringItem( FN_STAT_TIMER, OUString() ) );
             }
             break;
+            case FN_STAT_READINGTIME:
+            {
+                // Calculate reading time based on word count
+                SwDocStat documentStats = rShell.GetDoc()->getIDocumentStatistics().GetUpdatedDocStat( true /* complete-async */, false /* don't update fields */ );
+
+                // Average reading speed: 200 words per minute
+                const sal_uLong nWordsPerMinute = 200;
+                sal_uLong nMinutes = (documentStats.nWord + nWordsPerMinute - 1) / nWordsPerMinute; // Round up
+
+                OUString aReadingTime;
+                if (nMinutes == 0)
+                {
+                    aReadingTime = "Reading time: <1min";
+                }
+                else if (nMinutes < 60)
+                {
+                    aReadingTime = "Reading time: " + OUString::number(nMinutes) + "min";
+                }
+                else
+                {
+                    sal_uLong nHours = nMinutes / 60;
+                    sal_uLong nRemainingMinutes = nMinutes % 60;
+                    if (nRemainingMinutes == 0)
+                    {
+                        aReadingTime = "Reading time: " + OUString::number(nHours) + "h";
+                    }
+                    else
+                    {
+                        aReadingTime = "Reading time: " + OUString::number(nHours) + "h" + OUString::number(nRemainingMinutes) + "min";
+                    }
+                }
+
+                rSet.Put( SfxStringItem( FN_STAT_READINGTIME, aReadingTime ) );
+            }
+            break;
             case FN_STAT_ACCESSIBILITY_CHECK:
             {
                 std::unique_ptr<sw::OnlineAccessibilityCheck> const& rOnlineAccessibilityCheck = rShell.GetDoc()->getOnlineAccessibilityCheck();

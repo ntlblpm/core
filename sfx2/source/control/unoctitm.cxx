@@ -1404,6 +1404,7 @@ const std::map<std::u16string_view, KitUnoCommand>& GetKitUnoCommandList()
         { u"StatusPageStyle", { PayloadType::StringPayload, true } },
         { u"StateWordCount", { PayloadType::StringPayload, true } },
         { u"StateTimer", { PayloadType::StringPayload, true } },
+        { u"StateReadingTime", { PayloadType::StringPayload, true } },
         { u"PageStyleName", { PayloadType::StringPayload, false } },
         { u"PageStatus", { PayloadType::StringPayload, true } },
         { u"LayoutStatus", { PayloadType::StringPayload, true } },
