@@ -11,4 +11,4 @@
     - Toggling Focus Mode again restores the original UI configuration
 4. Heading navigation buttons: next heading and previous heading buttons added to bottom toolbar
     - Should add icons at some point instead of just showing text labels
-5. 
+5. Updated line count statistic to not need a button press and improved copy ("Lines: " -> "Lines of text: ")

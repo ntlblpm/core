@@ -34,8 +34,7 @@ public:
 private:
     virtual bool    FillItemSet(      SfxItemSet *rSet) override;
     virtual void    Reset      (const SfxItemSet *rSet) override;
-
-    DECL_LINK(UpdateHdl, weld::Button&, void);
+    virtual void    ActivatePage(const SfxItemSet& rSet) override;
 
     std::unique_ptr<weld::Label> m_xPageNo;
     std::unique_ptr<weld::Label> m_xTableNo;
@@ -47,7 +46,6 @@ private:
     std::unique_ptr<weld::Label> m_xCharExclSpacesNo;
     std::unique_ptr<weld::Label> m_xLineLbl;
     std::unique_ptr<weld::Label> m_xLineNo;
-    std::unique_ptr<weld::Button> m_xUpdatePB;
 
     SwDocStat       m_aDocStat;
 

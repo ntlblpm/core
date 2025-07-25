@@ -14,12 +14,9 @@ Doesn't require internet connection:
 5. text-to-speech capabilities (using system TTS)
 6. live preview while formatting
 7. screen reader mode
-8. Threaded comments (saved to the document so internet not necessary)
-9. Comment reactions (saved to the document so internet not necessary)
-10. update the line of text statistic in File -> Properties -> Statistics to auto-update
+8. Comment reactions (saved to the document so internet not necessary)
 11. document tabs: multiple tabs within one document (basically just separate documents inside a single document?)
 12. toggle lists: being able to collapse sections in a document
-13. focus mode: hide all ui elements except current paragraph
 14. writing targets: word count goals with progress tracking
 15. Corkboard view - Visual organization of sections as index cards
 16. split view: view/edit multiple parts of same document simultaneously

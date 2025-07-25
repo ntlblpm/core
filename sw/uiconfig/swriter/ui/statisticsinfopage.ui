@@ -126,7 +126,7 @@
         <property name="visible">True</property>
         <property name="can-focus">False</property>
         <property name="halign">end</property>
-        <property name="label" translatable="yes" context="statisticsinfopage|lineft">Lines:</property>
+        <property name="label" translatable="yes" context="statisticsinfopage|lineft">Lines of text:</property>
         <property name="use-underline">True</property>
         <property name="mnemonic-widget">nolines</property>
       </object>
@@ -254,18 +254,7 @@
       </packing>
     </child>
     <child>
-      <object class="GtkButton" id="update">
-        <property name="label" translatable="yes" context="statisticsinfopage|update">Update</property>
-        <property name="visible">True</property>
-        <property name="can-focus">True</property>
-        <property name="receives-default">True</property>
-        <property name="halign">start</property>
-        <property name="use-underline">True</property>
-      </object>
-      <packing>
-        <property name="left-attach">1</property>
-        <property name="top-attach">9</property>
-      </packing>
+      <placeholder/>
     </child>
     <child>
       <placeholder/>

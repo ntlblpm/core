@@ -48,16 +48,13 @@ SwDocStatPage::SwDocStatPage(weld::Container* pPage, weld::DialogController* pCo
     , m_xCharExclSpacesNo(m_xBuilder->weld_label(u"nocharsexspaces"_ustr))
     , m_xLineLbl(m_xBuilder->weld_label(u"lineft"_ustr))
     , m_xLineNo(m_xBuilder->weld_label(u"nolines"_ustr))
-    , m_xUpdatePB(m_xBuilder->weld_button(u"update"_ustr))
 {
     Update();
-    m_xUpdatePB->connect_clicked(LINK(this, SwDocStatPage, UpdateHdl));
-    //#111684# is the current view a page preview no SwFEShell can be found -> hide the update button
+    //#111684# is the current view a page preview no SwFEShell can be found -> hide the line count
     SwDocShell* pDocShell = static_cast<SwDocShell*>( SfxObjectShell::Current() );
     SwFEShell* pFEShell = pDocShell ? pDocShell->GetFEShell() : nullptr;
     if(!pFEShell)
     {
-        m_xUpdatePB->hide();
         m_xLineLbl->hide();
         m_xLineNo->hide();
     }
@@ -75,6 +72,14 @@ bool  SwDocStatPage::FillItemSet(SfxItemSet * /*rSet*/)
 
 void  SwDocStatPage::Reset(const SfxItemSet *)
 {
+}
+
+void SwDocStatPage::ActivatePage(const SfxItemSet& rSet)
+{
+    SfxTabPage::ActivatePage(rSet);
+
+    // Update all statistics (including line count) when the page is activated
+    Update();
 }
 
 // Description: update / set data
@@ -112,20 +117,17 @@ void SwDocStatPage::Update()
     pSh->EndAction();
 
     SetData(m_aDocStat);
-}
 
-IMPL_LINK_NOARG(SwDocStatPage, UpdateHdl, weld::Button&, void)
-{
-    Update();
-    SwDocShell* pDocShell = static_cast<SwDocShell*>( SfxObjectShell::Current());
+    // Update line count if we have a shell
+    SwDocShell* pDocShell = static_cast<SwDocShell*>(SfxObjectShell::Current());
     SwFEShell* pFEShell = pDocShell ? pDocShell->GetFEShell() : nullptr;
     if (pFEShell)
     {
         const LocaleDataWrapper& rLocaleData = Application::GetSettings().GetUILocaleDataWrapper();
         OUString sLineCount = rLocaleData.getNum(pFEShell->GetLineCount(), 0);
         m_xLineNo->set_label(sLineCount);
-        m_xLineNo->set_size_request(m_xLineNo->get_approximate_digit_width() * sLineCount.getLength(), -1);
     }
 }
+
 
 /* vim:set shiftwidth=4 softtabstop=4 expandtab: */
