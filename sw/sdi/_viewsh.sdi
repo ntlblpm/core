@@ -1099,4 +1099,10 @@ interface BaseTextEditView
         ExecMethod = Execute ;
     ]
 
+    FN_TEXT_TO_SPEECH
+    [
+        ExecMethod = Execute ;
+        StateMethod = GetState ;
+    ]
+
 }

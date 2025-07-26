@@ -764,6 +764,7 @@
       <menu:menuitem menu:id=".uno:AccessibilityCheckOnline"/>
       <menu:menuseparator/>
       <menu:menuitem menu:id=".uno:Translate"/>
+      <menu:menuitem menu:id=".uno:TextToSpeech"/>
       <menu:menuseparator/>
       <menu:menu menu:id=".uno:AutoFormatMenu">
         <menu:menupopup>

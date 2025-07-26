@@ -614,6 +614,13 @@ void SwView::GetState(SfxItemSet &rSet)
             rSet.Put(SfxBoolItem(FN_FOCUS_MODE, false)); // false = not in focus mode yet
             break;
         }
+
+        case FN_TEXT_TO_SPEECH:
+        {
+            // Text to speech is always available
+            // Nothing special to set, just enable the menu item
+            break;
+        }
         }
         nWhich = aIter.NextWhich();
     }

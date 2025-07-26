@@ -695,6 +695,9 @@ class SwUINumRuleItem;
 #define FN_GOTO_NEXT_HEADING    (FN_EXTRA2 + 136)
 #define FN_GOTO_PREV_HEADING    (FN_EXTRA2 + 137)
 
+// Text to speech command
+#define FN_TEXT_TO_SPEECH       (FN_EXTRA2 + 138)
+
 // Area: Help
 // Region: Traveling & Selection
 #define FN_CHAR_LEFT                (FN_SELECTION + 1 ) /* */

@@ -12,3 +12,4 @@
 4. Heading navigation buttons: next heading and previous heading buttons added to bottom toolbar
     - Should add icons at some point instead of just showing text labels
 5. Updated line count statistic to not need a button press and improved copy ("Lines: " -> "Lines of text: ")
+6. Text to speech function in tools menu. works on selected text

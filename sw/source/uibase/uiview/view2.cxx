@@ -61,6 +61,7 @@
 #include <unotools/syslocale.hxx>
 #include <editeng/unolingu.hxx>
 #include <vcl/weld.hxx>
+#include <vcl/stdtext.hxx>
 #include <editeng/tstpitem.hxx>
 #include <sfx2/event.hxx>
 #include <sfx2/docfile.hxx>
@@ -123,6 +124,9 @@
 #include <comphelper/docpasswordhelper.hxx>
 #include <svtools/strings.hrc>
 #include <svtools/svtresid.hxx>
+#include <osl/process.h>
+#include <rtl/process.h>
+#include <cstdlib>
 
 #include <PostItMgr.hxx>
 
@@ -1706,6 +1710,46 @@ void SwView::Execute(SfxRequest &rReq)
         {
             // Toggle focus mode - stub implementation
             // TODO: Implement focus mode functionality
+            break;
+        }
+
+        case FN_TEXT_TO_SPEECH:
+        {
+            // Get the selected text
+            OUString sSelectedText;
+            m_pWrtShell->GetSelectedText(sSelectedText);
+
+            if (sSelectedText.isEmpty())
+            {
+                // Show error message if no text is selected
+                std::unique_ptr<weld::MessageDialog> xErrorBox(Application::CreateMessageDialog(GetFrameWeld(),
+                                                              VclMessageType::Warning, VclButtonsType::Ok,
+                                                              u"No text selected. Please select some text and try again."_ustr));
+                xErrorBox->run();
+            }
+            else
+            {
+                // Convert the selected text to UTF-8 for the command line
+                OString sTextUtf8 = OUStringToOString(sSelectedText, RTL_TEXTENCODING_UTF8);
+
+                // Escape single quotes in the text
+                OString sEscapedText = sTextUtf8.replaceAll("'", "'\"'\"'");
+
+                // Build the command
+                OString sCommand = "spd-say '" + sEscapedText + "'";
+
+                // Execute the command
+                int nResult = std::system(sCommand.getStr());
+
+                if (nResult != 0)
+                {
+                    // Show error if speech-dispatcher is not available or command failed
+                    std::unique_ptr<weld::MessageDialog> xErrorBox(Application::CreateMessageDialog(GetFrameWeld(),
+                                                                  VclMessageType::Error, VclButtonsType::Ok,
+                                                                  u"Text-to-speech failed. Please ensure speech-dispatcher is installed and working."_ustr));
+                    xErrorBox->run();
+                }
+            }
             break;
         }
 

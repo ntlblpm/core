@@ -1837,6 +1837,11 @@ interface BaseText
         ExecMethod = Execute;
     ]
 
+    FN_TEXT_TO_SPEECH
+    [
+        ExecMethod = Execute;
+    ]
+
     SID_LANGUAGE_STATUS
     [
         ExecMethod = Execute ;

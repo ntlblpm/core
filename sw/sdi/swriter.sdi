@@ -9134,3 +9134,20 @@ SfxBoolItem FocusMode FN_FOCUS_MODE
     ToolBoxConfig = TRUE,
     GroupId = SfxGroupId::View;
 ]
+
+SfxVoidItem TextToSpeech FN_TEXT_TO_SPEECH
+()
+[
+    AutoUpdate = FALSE,
+    FastCall = FALSE,
+    ReadOnlyDoc = TRUE,
+    Toggle = FALSE,
+    Container = FALSE,
+    RecordAbsolute = FALSE,
+    RecordPerSet;
+
+    AccelConfig = TRUE,
+    MenuConfig = TRUE,
+    ToolBoxConfig = TRUE,
+    GroupId = SfxGroupId::Application;
+]

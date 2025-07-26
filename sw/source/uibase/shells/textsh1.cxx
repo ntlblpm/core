@@ -2192,6 +2192,13 @@ void SwTextShell::Execute(SfxRequest &rReq)
         GetView().UpdateWordCount(this, nSlot);
     }
     break;
+    case FN_TEXT_TO_SPEECH:
+    {
+        // Forward to view's Execute method
+        rReq.SetSlot(FN_TEXT_TO_SPEECH);
+        GetView().Execute(rReq);
+    }
+    break;
     case FN_PROTECT_FIELDS:
     case FN_PROTECT_BOOKMARKS:
     {

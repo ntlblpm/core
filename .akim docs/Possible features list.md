@@ -11,7 +11,6 @@ Doesn't require internet connection:
 2. SmartArt-esque graphics
 3. Picture styles and effects
 4. LaTeX syntax for formulas
-5. text-to-speech capabilities (using system TTS)
 6. live preview while formatting
 7. screen reader mode
 8. Comment reactions (saved to the document so internet not necessary)
